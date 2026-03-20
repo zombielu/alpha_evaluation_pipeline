@@ -3,7 +3,7 @@ from airflow.providers.amazon.aws.operators.ecs import EcsRunTaskOperator
 from datetime import datetime
 
 with DAG(
-    dag_id="alpha_evaluation_pipeline_v4",
+    dag_id="alpha_evaluation_pipeline_v7",
     start_date=datetime(2026,3,19),
     schedule="@daily",
     catchup=False,
