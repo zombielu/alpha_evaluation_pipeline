@@ -1,0 +1,51 @@
+{
+    "containerDefinitions": [
+        {
+            "name": "alpha_evaluation_container",
+            "image": "849412560805.dkr.ecr.us-east-1.amazonaws.com/alpha_evaluation:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "alpha_evaluation_container-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/alpha_evaluation_task",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "family": "alpha_evaluation_task",
+    "taskRoleArn": "arn:aws:iam::849412560805:role/alpha_evaluation_ecs_execution_role",
+    "executionRoleArn": "arn:aws:iam::849412560805:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "volumes": [],
+    "placementConstraints": [],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "runtimePlatform": {
+        "cpuArchitecture": "ARM64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "enableFaultInjection": false
+}

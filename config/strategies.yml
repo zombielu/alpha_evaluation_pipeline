@@ -1,0 +1,16 @@
+strategies:
+  - name: fourcondition
+  - name: ema
+    params:
+      period: 20
+  - name: rsi
+    params:
+      period: 14
+      oversold: 30
+      overbought: 70
+  - name: ema_rsi
+    params:
+      ema_period: 20
+      rsi_period: 14
+      oversold: 30
+      overbought: 70
