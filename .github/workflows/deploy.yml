@@ -49,15 +49,15 @@ jobs:
 
           echo "image=${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:latest" >> $GITHUB_OUTPUT   
 
-#      - name: Render task definition
-#        id: task-def
-#        uses: aws-actions/amazon-ecs-render-task-definition@v1
-#        with:
-#          task-definition: ${{ env.ECS_TASK_DEFINITION }}
-#          container-name: ${{ env.CONTAINER_NAME }}
-#          image: ${{ steps.build-image.outputs.image }}
-#
-#      - name: Register ECS task definition
-#        run: |
-#          aws ecs register-task-definition \
-#            --cli-input-json file://${{ steps.task-def.outputs.task-definition }}
+      - name: Render task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ env.ECS_TASK_DEFINITION }}
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ steps.build-image.outputs.image }}
+
+      - name: Register ECS task definition
+        run: |
+          aws ecs register-task-definition \
+            --cli-input-json file://${{ steps.task-def.outputs.task-definition }}
